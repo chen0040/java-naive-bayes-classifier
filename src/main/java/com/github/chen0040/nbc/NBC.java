@@ -5,16 +5,17 @@ import com.github.chen0040.data.frame.DataFrame;
 import com.github.chen0040.data.frame.DataRow;
 import com.github.chen0040.data.utils.CountRepository;
 import com.github.chen0040.data.utils.discretizers.KMeansDiscretizer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
-import java.util.logging.Logger;
 
 
 /**
- * Created by memeanalytics on 18/8/15.
+ * Created by xschen on 18/8/15.
  */
 public class NBC {
-    private final static Logger logger = Logger.getLogger(String.valueOf(NBC.class));
+    private final static Logger logger = LoggerFactory.getLogger(NBC.class);
     private CountRepository model = new CountRepository();
     private KMeansDiscretizer inputDiscretizer = new KMeansDiscretizer();
     private final List<String> classLabels = new ArrayList<>();
@@ -117,14 +118,13 @@ public class NBC {
             }
         }
 
+
+
         classLabels.clear();
         classLabels.addAll(set);
     }
 
     public void fit(DataFrame batch) {
-        
-
-        batch = batch.filter(this::isValidTrainingSample);
 
         inputDiscretizer.fit(batch);
 
@@ -143,7 +143,7 @@ public class NBC {
             List<String> columnNames = tuple.getCategoricalColumnNames();
             int n = columnNames.size();
             for (int j = 0; j < n; ++j) {
-                String variableName = columnNames.get(i);
+                String variableName = columnNames.get(j);
                 String value = tuple.getCategoricalCell(variableName);
                 String eventName = variableName + "=" + value;
                 model.addSupportCount(classEventName, eventName);
@@ -155,7 +155,7 @@ public class NBC {
             columnNames = tuple.getColumnNames();
             n = columnNames.size();
             for (int j = 0; j < n; ++j) {
-                String variableName = columnNames.get(i);
+                String variableName = columnNames.get(j);
                 double value = tuple.getCell(variableName);
                 int label = inputDiscretizer.discretize(value, variableName);
                 String eventName = variableName + "=" + label;
