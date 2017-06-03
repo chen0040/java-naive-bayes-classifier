@@ -15,7 +15,7 @@ import java.util.*;
  * Created by xschen on 18/8/15.
  */
 public class NBC {
-    private final static Logger logger = LoggerFactory.getLogger(NBC.class);
+
     private CountRepository model = new CountRepository();
     private KMeansDiscretizer inputDiscretizer = new KMeansDiscretizer();
     private final List<String> classLabels = new ArrayList<>();
@@ -25,25 +25,9 @@ public class NBC {
         return !tuple.getCategoricalTargetColumnNames().isEmpty();
     }
 
-    public void copy(NBC that){
-
-        model = that.model == null ? null : that.model.makeCopy();
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        NBC clone = (NBC)super.clone();
-        clone.copy(this);
-
-        return clone;
-    }
 
     public NBC(){
 
-    }
-
-    public CountRepository getModel(){
-        return model;
     }
 
     public String classify(DataRow tuple) {
