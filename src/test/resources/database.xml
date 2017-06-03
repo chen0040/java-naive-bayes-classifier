@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<database>
+
+<record outlook="Sunny" temperature="75" humidity="70" windy="true" class ="Play" />
+<record outlook="Sunny" temperature="80" humidity="90" windy="true" class ="Dont" />
+<record outlook="Sunny" temperature="85" humidity="85" windy="false" class ="Dont" />
+<record outlook="Sunny" temperature="72" humidity="95" windy="true" class ="Dont" />
+<record outlook="Sunny" temperature="69" humidity="70" windy="false" class ="Play" />
+<record outlook="Overcast" temperature="72" humidity="90" windy="true" class ="Play" />
+<record outlook="Overcast" temperature="83" humidity="78" windy="false" class ="Play" />
+<record outlook="Overcast" temperature="64" humidity="65" windy="true" class ="Play" />
+<record outlook="Overcast" temperature="81" humidity="75" windy="false" class ="Play" />
+<record outlook="Rain" temperature="71" humidity="80" windy="true" class ="Dont" />
+<record outlook="Rain" temperature="65" humidity="70" windy="true" class ="Dont" />
+<record outlook="Rain" temperature="75" humidity="80" windy="false" class ="Play" />
+<record outlook="Rain" temperature="68" humidity="80" windy="false" class ="Play" />
+<record outlook="Rain" temperature="70" humidity="96" windy="false" class ="Play" />
+
+
+</database>
